@@ -6,12 +6,12 @@ import { credentials, verifyToken } from '../middleware/authMiddleware.js'
 
 const router = Router()
 
-router.post('/api/register', credentials, registerUser)
-router.post('/api/login', credentials, loginUser)
+router.post('/register', credentials, registerUser)
+router.post('/login', credentials, loginUser)
 
-router.get('/api/perfil', verifyToken, getUserData)
+router.get('/perfil', verifyToken, getUserData)
 
-router.put('/api/perfil', verifyToken, updateUserController)
+router.put('/perfil', verifyToken, updateUserController)
 
 
 export default router

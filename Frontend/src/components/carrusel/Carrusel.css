@@ -1,0 +1,23 @@
+.carousel-item-custom {
+    height: 400px; 
+    max-height: 80vh;
+}
+
+.carousel-image-custom {
+    height: 100%; 
+    
+    /* Evita que la imagen se estire. 
+       Cubre el área manteniendo la proporción y recortando los bordes. */
+    object-fit: cover; 
+}
+
+/* Estilo para la capa de oscuridad, si la usas 
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 48, 48, 0.4);
+    z-index: 10;
+} */

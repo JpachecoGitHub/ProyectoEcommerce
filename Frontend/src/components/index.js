@@ -1,0 +1,6 @@
+export { default as Profile } from './profile/Profile'
+export { default as Productos } from './productos/Productos'
+export { default as Footer } from './footer/Footer'
+export { default as FormularioPago } from './formularioPago/FormularioPago'
+export { default as AgradecimientoCompra } from './agradecimientoCompra/AgradeciomientoCompra'
+export { default as Navigation } from './navbar/Navigation'

@@ -1,0 +1,7 @@
+export { default as Cart } from './carrito/Cart'
+export { default as Contactanos } from './contactanos/Contactanos'
+export { default as Home } from './home/Home'
+export { default as Login } from './login/Login'
+export { default as NotFound } from './notfound/NotFound'
+export { default as ProductRegister } from './productRegister/ProductRegister'
+export { default as Register } from './register/Register'

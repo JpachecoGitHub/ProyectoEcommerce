@@ -88,5 +88,12 @@ INSERT INTO productos (nombre, descripcion, precio, stock, sku, imagen_url, cate
 ('Falda Midi Plisada', 'Poliéster ligero, cintura elástica, color burdeos.', 47.30, 65, 'RPC-FAL010', 'https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg?auto=compress&cs*tinysrgb&dpr=2&h=750&w=1260', (SELECT id FROM categorias WHERE nombre = 'Ropa Casual' LIMIT 1));
 
 
+('Sudadera con Capucha', 'Interior afelpado, bolsillo canguro, gris jaspeado.', 55.50, 100, 'RPC-SUD003', 'https://images.pexels.com/photos/428339/pexels-photo-428339.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', (SELECT id FROM categorias WHERE nombre = 'Ropa Casual' LIMIT 1)),
+('Shorts Deportivos Negros', 'Malla transpirable, secado rápido, cordón ajustable.', 30.00, 110, 'RPC-SHO006', 'https://images.pexels.com/photos/428331/pexels-photo-428331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', (SELECT id FROM categorias WHERE nombre = 'Ropa Casual' LIMIT 1)),
+('Pantalón Chino Beige', 'Corte recto, tela cómoda, ideal para oficina casual.', 58.50, 90, 'RPC-PNC009', 'https://images.pexels.com/photos/428327/pexels-photo-428327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', (SELECT id FROM categorias WHERE nombre = 'Ropa Casual' LIMIT 1)),
+('Jeans Slim Fit Oscuro', 'Denim elástico, corte ajustado, color azul índigo.', 65.00, 80, 'RPC-JNS002', 'https://images.pexels.com/photos/428241/pexels-photo-428241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', (SELECT id FROM categorias WHERE nombre = 'Ropa Casual' LIMIT 1)),
 
-
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQicF6dlg7-WiGwXdQiJHQWMQJr9I_LuLbeNg&s
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9pbuX9kCE3nPCcMltLREkKYBHSM7Xbev_xQ&s
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu93RI_bt4W4tSBry8Iz6VwhuRXpw-Orlmdg&s
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1DVTpJGTRS7tB89ImoWxmSDWXglVZP0EpDw&s

@@ -2,7 +2,9 @@ import React, { createContext, useState, useEffect } from 'react'
 
 export const ProductosContext = createContext()
 
-const API_HOST = 'http://localhost:5000/api/productos'
+const API_HOST = 'https://proyectoecommerce-65uo.onrender.com'
+
+// const API_HOST = 'http://localhost:5000/api/productos'
 
 // Creo el proveedor del contexto.
 export const ProductosProvider = ({ children }) => {

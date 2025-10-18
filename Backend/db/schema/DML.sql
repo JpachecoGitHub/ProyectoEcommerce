@@ -11,6 +11,19 @@ SELECT id, nombre, imagen_url FROM categorias;
 ALTER TABLE categorias
 ADD COLUMN imagen_url VARCHAR(255);
 
+INSERT INTO usuarios ( nombre, apellido, email, password, direccion, telefono, rol ) 
+VALUES ('Jose angel', 'Pacheco', 'joseangelpb@gmail.com', '$2b$10$JxjsPgaO3GTu13B5iXDXA.ac2thdIk9n3hxz5bFc3W5vpXqmfx3Jq',
+    'santiago', '667899876', 'admin');
+
+
+UPDATE usuarios
+SET 
+    password = '$2b$10$JxjsPgaO3GTu13B5iXDXA.ac2thdIk9n3hxz5bFc3W5vpXqmfx3Jq',
+    nombre = 'Jose'
+WHERE 
+    email = 'josepacheco73@hotmail.com';
+
+
 
 UPDATE categorias SET imagen_url = 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/d1bddf788d79d2af39323dc484f2f59e.jpg' WHERE nombre = 'Ropa Invierno';
 

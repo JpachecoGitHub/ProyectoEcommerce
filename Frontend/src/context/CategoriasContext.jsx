@@ -3,7 +3,9 @@ import axios from 'axios'
 
 export const CategoriasContext = createContext()
 
-const API_CATEGORIAS_URL = 'http://localhost:5000/api/categorias'
+const API_CATEGORIAS_URL = 'https://proyectoecommerce-65uo.onrender.com'
+
+// const API_CATEGORIAS_URL = 'http://localhost:5000/api/categorias'
 
 export const CategoriasProvider = ({ children }) => {
   const [categorias, setCategorias] = useState([])

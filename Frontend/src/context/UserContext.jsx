@@ -2,8 +2,11 @@ import { createContext, useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const HOST = 'http://localhost:5000/api/auth'
-const ORDERS_HOST = 'http://localhost:5000/api/pedidos'
+const HOST = 'https://proyectoecommerce-65uo.onrender.com'
+const ORDERS_HOST = 'https://proyectoecommerce-65uo.onrender.com'
+
+// const HOST = 'http://localhost:5000/api/auth'
+// const ORDERS_HOST = 'http://localhost:5000/api/pedidos'
 
 export const UserContext = createContext()
 

@@ -95,9 +95,9 @@ const Login = () => {
                   <Form.Control.Feedback type='invalid'>
                     {formik.errors.password}
                   </Form.Control.Feedback>
-                  <Button variant='outline-secondary'>
+                  {/* <Button variant='outline-secondary'>
                     <i className='bi bi-eye-fill' />
-                  </Button>
+                  </Button> */}
                 </InputGroup>
               </Form.Group>
 

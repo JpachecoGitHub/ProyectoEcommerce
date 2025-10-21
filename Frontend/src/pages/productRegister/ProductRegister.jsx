@@ -353,7 +353,7 @@ const ProductRegister = () => {
 
       <Modal show={showModal} onHide={handleCloseModal} size='xl' centered>
         <Modal.Header closeButton>
-          <Modal.Title>Vista Previa de la Imagen</Modal.Title>
+          <Modal.Title> Vista Previa de la Imagen </Modal.Title>
         </Modal.Header>
         <Modal.Body className='p-0 text-center'>
           <img

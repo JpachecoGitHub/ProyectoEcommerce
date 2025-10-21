@@ -8,6 +8,7 @@ import { ProductosProvider } from './context/ProductContext'
 import { CategoriasProvider } from './context/CategoriasContext'
 import ProductDetail from './components/productDetalle/ProductDetalle'
 import { CartProvider } from './context/CartContext'
+import ProtectedRoute from './components/protectedRoute/ProtectedRoute'
 
 const App = () => {
   return (
@@ -23,17 +24,21 @@ const App = () => {
                 <main className='content-wrapper'>
                   <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/Cart' element={<Cart />} />
                     <Route path='/contacto' element={<Contactanos />} />
-                    <Route path='/Login' element={<Login />} />
-                    <Route path='/Register' element={<Register />} />
-                    <Route path='/checkout' element={<FormularioPago />} />
-                    <Route path='/profile' element={<Profile />} />
                     <Route path='/producto/:id' element={<ProductDetail />} />
                     <Route path='/productos/:categoria?' element={<Productos />} />
-                    <Route path='/productRegister' element={<ProductRegister />} />
-                    <Route path='/FormularioPago' element={<FormularioPago />} />
-                    <Route path='/AgradecimientoCompra' element={<AgradecimientoCompra />} />
+                    <Route path='/Login' element={<Login />} />
+                    <Route path='/Register' element={<Register />} />
+                    <Route element={<ProtectedRoute />}>
+                      <Route path='/Cart' element={<Cart />} />
+                      <Route path='/checkout' element={<FormularioPago />} />
+                      <Route path='/profile' element={<Profile />} />
+                      <Route path='/FormularioPago' element={<FormularioPago />} />
+                      <Route path='/AgradecimientoCompra' element={<AgradecimientoCompra />} />
+                    </Route>
+                    <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+                      <Route path='/productRegister' element={<ProductRegister />} />
+                    </Route>
                     <Route path='*' element={<NotFound />} />
                   </Routes>
                 </main>

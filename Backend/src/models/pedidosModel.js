@@ -17,7 +17,6 @@ export const createOrder = async (userId, items, shippingDetails) => {
         const finalMetodoPago = shippingDetails.metodo_pago || 'Tarjeta de Crédito';
         const finalTransaccion = shippingDetails.id_transaccion_pago || 'TRANS-' + Date.now().toString();
 
-        // Insert Order Header (pedidos)
         const orderQuery = {
             text: `
                 INSERT INTO pedidos (usuario_id, fecha_pedido, estado_pedido, total, direccion_envio, metodo_pago, id_transaccion_pago)
@@ -35,9 +34,8 @@ export const createOrder = async (userId, items, shippingDetails) => {
         const orderResult = await client.query(orderQuery)
         const pedidoId = orderResult.rows[0].id
 
-        // Insert Order Details (detalle_pedido)
         for (const item of items) {
-            // Check constraint: cantidad > 0 and subtotal >= 0
+           
             if (item.quantity <= 0 || item.precio < 0) {
                 throw new Error(`Invalid quantity or price for item ${item.id}`);
             }
@@ -54,7 +52,6 @@ export const createOrder = async (userId, items, shippingDetails) => {
             await client.query(detailQuery)
         }
         
-        // Commit Transaction
         await client.query('COMMIT')
         
         return { id: pedidoId, success: true }
@@ -62,8 +59,8 @@ export const createOrder = async (userId, items, shippingDetails) => {
     } catch (error) {
         
         await client.query('ROLLBACK')
-        console.error("❌ --- ERROR CRÍTICO DE POSTGRESQL DETALLADO --- ❌");
-        console.error("Código SQL:", error.code); // Look for 23502 (NOT NULL) or 23514 (CHECK)
+        console.error("❌ --- ERROR CRÍTICO DE POSTGRESQL DETALLADO --- ❌")
+        console.error("Código SQL:", error.code)
         console.error("Mensaje de BD:", error.detail || error.message); 
         
         
@@ -75,10 +72,10 @@ export const createOrder = async (userId, items, shippingDetails) => {
 
 
 export const getPurchaseHistoryByEmail = async (email) => {
-    // Necesitas el ID del usuario para filtrar los pedidos
-    const userResult = await pool.query('SELECT id FROM usuarios WHERE email = $1', [email]);
-    if (userResult.rowCount === 0) return [];
-    // const userId = userResult.rows[0].id;
+   
+    const userResult = await pool.query('SELECT id FROM usuarios WHERE email = $1', [email])
+    if (userResult.rowCount === 0) return []
+    // const userId = userResult.rows[0].id
 
     // Consulta para unir pedidos, detalle_pedido y productos
     const SQLquery = {

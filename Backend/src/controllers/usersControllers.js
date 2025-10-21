@@ -4,7 +4,7 @@ import { getPurchaseHistoryByEmail } from "../models/pedidosModel.js"
 
 export const getUserData = async (req, res) => {
   try {
-    const user = await findUserByEmail(req.userEmail);
+    const user = await findUserByEmail(req.userEmail)
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado." })
     }
@@ -26,8 +26,7 @@ export const getUserData = async (req, res) => {
 
 export const updateUserController = async (req, res) => {
   try {
-    const email = req.userEmail;
-    // Renombramos req.body a rawUpdateData para evitar conflictos de nombre
+    const email = req.userEmail
     const rawUpdateData = req.body
 
     const allowedFields = [
@@ -47,18 +46,17 @@ export const updateUserController = async (req, res) => {
       if (rawUpdateData[field] !== undefined && rawUpdateData[field] !== null) {
         // Solo incluimos la contraseña si se está intentando cambiar 
         if (field === "password" && rawUpdateData[field].trim() === "") {
-          return; // No incluir la contraseña si está vacía
+          return 
         }
 
         updateData[field] = rawUpdateData[field]
       }
-    });
-    // Si no hay datos para actualizar después del filtrado, terminar la operación
+    })
     if (Object.keys(updateData).length === 0) {
       return res.status(400).json({ error: "No se proporcionaron datos válidos para actualizar." })
     }
 
-    const updatedUser = await updateUserByEmail(email, updateData);
+    const updatedUser = await updateUserByEmail(email, updateData)
 
     if (!updatedUser) {
       return res.status(404).json({ error: "Usuario no encontrado después de la actualización." })

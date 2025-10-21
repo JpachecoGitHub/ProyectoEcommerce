@@ -120,7 +120,7 @@ const FormularioPago = () => {
       Swal.fire({ icon: 'error', title: 'CVV inválido', text: 'El CVV debe tener 3 o 4 dígitos.' }); return
     }
 
-    // 2. SIMULACIÓN DE PAGO
+    // SIMULACIÓN DE PAGO
     Swal.fire({
       title: 'Procesando pago...',
       html: `No cierres esta ventana. Total a pagar: <b>$${total.toLocaleString('es-CL')}</b>`,

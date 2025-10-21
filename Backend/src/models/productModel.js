@@ -1,6 +1,5 @@
 import pool from '../../db/config.js'
 
-// --- FUNCIONES CRUD ---
 
 //  OBTENER TODOS LOS PRODUCTOS
 const findAllProducts = async () => {

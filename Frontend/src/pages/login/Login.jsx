@@ -11,10 +11,14 @@ const Login = () => {
   const emailRef = useRef(null)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  /* useEffect(() => {
     if (emailRef.current) {
       emailRef.current.focus()
     }
-  }, [])
+  }, []) */
 
   // Esquema de validación con Yup para el login
   const validationSchema = Yup.object().shape({

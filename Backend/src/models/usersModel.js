@@ -24,38 +24,34 @@ export const findUserByEmail = async (email) => {
 }
 
 
-// src/models/usersModel.js (AGREGAR O VERIFICAR ESTA FUNCIÓN)
-
 export const updateUserByEmail = async (email, updateData) => {
-    // 1. Filtrar solo los campos que tienen valor
+   
     if (updateData.password) {
         const saltRounds = 10;
-        updateData.password = bcrypt.hashSync(updateData.password, saltRounds); // Hashear la nueva contraseña
-    } else {
-        // 🚨 CORRECCIÓN CLAVE: Asegurarse de que el campo 'password' no se incluya en el UPDATE si no se cambia.
-        delete updateData.password; 
+        updateData.password = bcrypt.hashSync(updateData.password, saltRounds) // Hashear la nueva contraseña
+    } else {  
+        delete updateData.password
     }
     
-    const fields = Object.keys(updateData).filter(key => updateData[key] !== undefined);
+    const fields = Object.keys(updateData).filter(key => updateData[key] !== undefined)
 
     
     if (fields.length === 0) {
-      return null; // Nada que actualizar
+      return null // Nada que actualizar
     }
 
-    // 2. Construir la parte SET de la consulta
-    const setClauses = fields.map((field, index) => `${field} = $${index + 1}`).join(', ');
+    // Construir la parte SET de la consulta
+    const setClauses = fields.map((field, index) => `${field} = $${index + 1}`).join(', ')
     
-    // 3. Crear el array de valores para la consulta
+    // Crear el array de valores para la consulta
     const values = fields.map(field => updateData[field]);
     
-    // 4. El email es el último valor ($[fields.length + 1])
     values.push(email)
 
     const SQLquery = {
         text: `UPDATE usuarios SET ${setClauses} WHERE email = $${values.length} RETURNING *`,
         values: values
-    };
+    }
 
     const response = await pool.query(SQLquery)
     return response.rows[0]
@@ -64,7 +60,7 @@ export const updateUserByEmail = async (email, updateData) => {
 
 export const updateLastLogin = async (email) => {
   const SQLquery = {
- // Actualiza 'ultima_conexion' a la hora actual de la base de datos
+ // Actualiza ultima_conexion a la hora actual de la base de datos
     text: 'UPDATE usuarios SET ultima_conexion = NOW() WHERE email = $1',
     values: [email]
   }

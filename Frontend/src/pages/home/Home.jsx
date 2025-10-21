@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Categorias from '../../components/categoria/Categorias'
 import CarruselDeImagenes from '../../components/carrusel/Carrusel'
@@ -20,6 +20,10 @@ const shuffleArray = (array) => {
 const Home = () => {
   const { productos, loading } = useContext(ProductosContext)
   const { addToCart } = useContext(CartContext)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   // Si los datos se están cargando, mostramos un mensaje o componente de carga
   if (loading) {

@@ -28,7 +28,7 @@ export const verifyToken = (req, res, next) => {
     req.userEmail = decoded.email
     next()
   } catch (error) {
-    // console.error('Error al verificar token:', error)
+   
     if (error.name === 'TokenExpiredError') {
       return res.status(401).json({ error: 'Token expirado.' })
     }

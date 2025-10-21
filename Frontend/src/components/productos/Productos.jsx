@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { ProductosContext } from '../../context/ProductContext'
 import { CartContext } from '../../context/CartContext'
@@ -15,9 +15,9 @@ const Productos = () => {
   const categoriaEncontrada = categorias.find(cat => cat.nombre === decodeURIComponent(categoria))
   const categoriaIdAFiltrar = categoriaEncontrada ? categoriaEncontrada.id : null
 
-  /* useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0)
-  }, [categoria]) */
+  }, [categoria])
 
   // Filtro los productos por categoría seleccionada
   const productosFiltrados = categoriaIdAFiltrar

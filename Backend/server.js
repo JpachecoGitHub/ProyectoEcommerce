@@ -4,7 +4,6 @@ import productRoutes from './routes/productRoutes.js'
 import authRoutes from './routes/auth.routes.js' 
 import categoryRoutes from './routes/categoryRoutes.js'
 import pedidosRouter from './routes/pedidosRoutes.js'
-// import pool from './db/config.js'
 
 import cors from 'cors'
 
@@ -26,13 +25,9 @@ app.use('/api/pedidos', pedidosRouter)
 const PORT = process.env.PORT || 3000
 
 
-// const serverInstance = 
-
 app.listen(PORT, () => {
         console.log(`🔥 Server on 🔥🏃http://localhost:${PORT}`)
 })
 
 
 export default app
-
-// export { serverInstance, pool }

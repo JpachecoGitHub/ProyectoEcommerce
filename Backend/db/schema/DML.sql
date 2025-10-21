@@ -1,4 +1,4 @@
-SELECT * FROM carrito;
+-- SELECT * FROM carrito;
 
 SELECT * FROM categorias;
 SELECT * FROM detalle_pedido;

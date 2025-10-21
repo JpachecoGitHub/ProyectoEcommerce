@@ -1,7 +1,7 @@
-import React from 'react'
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { useEffect } from 'react'
 
 // Esquema de validación con Yup
 const validationSchema = Yup.object().shape({
@@ -17,6 +17,10 @@ const validationSchema = Yup.object().shape({
 })
 
 const Contactanos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <Container className='my-5'>
       <h1 className='text-center mb-4'>Contáctanos</h1>

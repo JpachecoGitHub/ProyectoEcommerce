@@ -21,8 +21,4 @@ pool.query('SELECT NOW()', (err, res) => {
   }
 })
 
-/* export const closeDB = async () => {
-    await pool.end();
-} */
-
 export default pool

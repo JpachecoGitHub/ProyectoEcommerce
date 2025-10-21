@@ -41,17 +41,23 @@ export const updateUserController = async (req, res) => {
     // Inicializamos el objeto que sí usaremos en el modelo
     const updateData = {}
 
-    allowedFields.forEach((field) => {
-      // Usamos rawUpdateData, que es req.body
+    for (const field of allowedFields) {
       if (rawUpdateData[field] !== undefined && rawUpdateData[field] !== null) {
-        // Solo incluimos la contraseña si se está intentando cambiar 
+      
         if (field === "password" && rawUpdateData[field].trim() === "") {
-          return 
+          continue
         }
+
+        if (field === "imagen_url" && rawUpdateData[field].startsWith('data:')) {
+           
+            updateData[field] = rawUpdateData[field]
+            
+        } else {
 
         updateData[field] = rawUpdateData[field]
       }
-    })
+    }
+  }
     if (Object.keys(updateData).length === 0) {
       return res.status(400).json({ error: "No se proporcionaron datos válidos para actualizar." })
     }
